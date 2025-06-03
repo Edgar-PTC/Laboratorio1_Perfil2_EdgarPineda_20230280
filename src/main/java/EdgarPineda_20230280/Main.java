@@ -1,5 +1,6 @@
 package EdgarPineda_20230280;
 
+import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
@@ -41,16 +42,30 @@ public class Main {
 
                 case 2:
                     String idprd;
+                    Integer prdcant;
                     System.out.println("-----Ingrese el id del producto que desea actualizar-----");
+                    idprd = scn.next();
+                    System.out.println("-----Ingrese la nueva cantidad en almacendel producto-----");
+                    prdcant = scn.nextInt();
 
+                    productos.put(idprd, prdcant);
+
+                    System.out.println("-----" + idprd + " ha sido actualizado-----");
+                    System.out.println("----- Nuevo valor en almacen: " + prdcant + "-----");
                     break;
 
                 case 3:
-                    System.out.println("Los stocks deproductos son:" + productos);
+                    for(Map.Entry<String, Integer> stocks : productos.entrySet()){
+                        System.out.println("Id del Producto: " + stocks.getKey() + " Con un valor en almacen de: " + stocks.getValue());
+                    }
                     break;
 
                 case 4:
-
+                    for(Map.Entry<String, Integer> stocks : productos.entrySet()){
+                        if (stocks.getValue() < 10){
+                            System.out.println("Id del Producto: " + stocks.getKey() + " Con un valor en almacen de: " + stocks.getValue());
+                        }
+                    }
                     break;
 
                 case 5:
