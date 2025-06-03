@@ -48,10 +48,13 @@ public class Main {
                     System.out.println("-----Ingrese la nueva cantidad en almacendel producto-----");
                     prdcant = scn.nextInt();
 
-                    productos.put(idprd, prdcant);
-
-                    System.out.println("-----" + idprd + " ha sido actualizado-----");
-                    System.out.println("----- Nuevo valor en almacen: " + prdcant + "-----");
+                    if (productos.containsKey(idprd)) {
+                        productos.put(idprd, prdcant);
+                        System.out.println("-----" + idprd + " ha sido actualizado-----");
+                        System.out.println("----- Nuevo valor en almacén: " + prdcant + " -----");
+                    } else {
+                        System.out.println("Producto no encontrado");
+                    }
                     break;
 
                 case 3:
